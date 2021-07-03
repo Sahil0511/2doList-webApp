@@ -11,6 +11,7 @@
         <h1 class="h1">Tasks I need to Finish</h1>
     </div>
 
+    <!-- Task List -->
     <div class="all-tasks">
         <h2 class="task-list-title">My Tasks</h2>
         <ul class="task-list">
@@ -21,10 +22,60 @@
         </ul>
 
         <form action="">
-            <input type="text" class="new task" placeholder="new task name" aria-label="new task name">
-            <button class="btn task" aria-label="create new task">+</button>
+            <input type="text" class="new list" placeholder="new list name" aria-label="new list name">
+            <button class="btn list" aria-label="create new list">+</button>
         </form>
-        
+    </div>
+    <!-- End of Task List -->
+
+    <!-- Todo List -->
+    <div class="todo-list">
+        <div class="todo-header">
+            <h2 class="list-title">Morning</h2>
+            <p class="task-count">4 task remaining</p>
+        </div>
+
+        <!-- Task-1 -->
+         <div class="todo-body">
+            <div class="tasks">
+                <div class="task">
+                    <input type="checkbox" id="task-1">
+                    <label for="task-1">
+                    <span class="custom-checkbox"></span>
+                        Meditation
+                    </label>
+                </div>
+         <!-- Task-2 -->
+                <div class="task">
+                    <input type="checkbox" id="task-2">
+                    <label for="task-2">
+                    <span class="custom-checkbox"></span>
+                        Have Breakfast
+                    </label>
+                </div>
+        <!-- Task-3 -->
+                <div class="task">
+                    <input type="checkbox" id="task-3">
+                    <label for="task-3">
+                    <span class="custom-checkbox"></span>
+                        Read Book
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="new-task-creator">
+                <form action="">
+                    <input type="text" class="new task" placeholder="new task name" aria-label="new task name">
+                    <button class="btn task" aria-label="create new task">+</button>
+                </form>
+            </div>
+
+            <div>
+                <button class="btn delete">Clear completed task</button>
+                <button class="btn delete">Delete all tasks</button>
+            </div>
+        </div>
     </div>
 
     
