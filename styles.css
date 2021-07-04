@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
 
 :root {
     --primary: #607262;
@@ -7,7 +7,129 @@
     --light: #e5b9b0;
 }
 
+*,
+*::before,
+*::after {
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    font-weight: 300;
+    font-size: 1.5rem;
+    background-color: var(--primary);
+    color: var(--secondary);
+
+    display: grid;
+    grid: 
+      "header header header header" auto
+      "... lists active ..." auto /
+      1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+}
+
+h1 {
+    grid-area: header;
+    text-align: center;
+    color: var(--warning);
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: -.3em 0 2em;
+}
+
+.all-tasks {
+    grid-area: lists;
+}
+
+form {
+    display: flex;
+}
+
+.task-list {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    list-style: circle;
+    padding-left: 1rem;
+}
+
+.active-list {
+    font-weight: 700;
+}
+
+.list-name {
+    cursor: pointer;
+}
+.list-name:hover {
+    opacity: 0.7;
+}
+
+.new {
+    background: transparent;
+    border: 0;
+    color: var(--secondary);
+    border-bottom: 1px solid currentColor;
+    font-size: inherit;
+    outline: none;
+    order: 2;
+    transition: border-bottom 150ms ease-in;
+}
+.new::placeholder {
+    color: var(--secondary);
+}
+.new:focus{
+    border-bottom-width: 3px;
+}
+.new:focus::placeholder {
+    opacity: 0.2;
+}
+.new.list {
+    font-size: 1.2rem;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 0;
+    background: 0;
+    border: 0;
+    color: inherit;
+}
+.btn.create {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: .5rem;
+    transition: opacity 200ms ease-in;  
+}
+.btn.create:hover {
+    opacity: 0.7;
+}
+
+.todo-list {
+    grid-area: active;
+    background-color: var(--warning);
+    color: var(--light);
+    --spacer: 2rem;
+}
+.todo-header {
+    background-color: var(--light);
+    color: var(--warning);
+    padding: var(--spacer);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.todo-body {
+    padding: var(--spacer);
+}
+
+.list-title {
+    margin: 0 1em 0 0;
+}
+
+.task-count {
+    margin: 0;
+    font-size: 1rem;
 }
