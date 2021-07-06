@@ -3,8 +3,9 @@
 :root {
     --primary: #607262;
     --secondary: #faf9f4;
-    --warning: #f4e3d1; 
-    --light: #e5b9b0;
+    --warning: #202020; 
+    --light: #fff;
+    --tertiary: #ffdf6c;
 }
 
 *,
@@ -34,7 +35,7 @@ body {
 h1 {
     grid-area: header;
     text-align: center;
-    color: var(--warning);
+    color: var(--tertiary);
     font-size: 3rem;
     font-weight: 700;
     letter-spacing: 2px;
@@ -89,6 +90,15 @@ form {
 .new.list {
     font-size: 1.2rem;
 }
+.new-task {
+    margin-bottom: 0;
+}
+.new-task::placeholder {
+    color: black;
+}
+.new-task-creator .create {
+    color: var(--primary);
+}
 
 .btn {
     cursor: pointer;
@@ -106,12 +116,16 @@ form {
 .btn.create:hover {
     opacity: 0.7;
 }
+.new-task-creator .btn.create {
+    margin-bottom: 1.5rem;
+}
 
 .todo-list {
     grid-area: active;
     background-color: var(--warning);
     color: var(--light);
     --spacer: 2rem;
+    margin-bottom: 2rem;
 }
 .todo-header {
     background-color: var(--light);
@@ -123,6 +137,7 @@ form {
 }
 .todo-body {
     padding: var(--spacer);
+    position: relative;
 }
 
 .list-title {
@@ -132,4 +147,91 @@ form {
 .task-count {
     margin: 0;
     font-size: 1rem;
+}
+.task-label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+.task-::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -0.5em;
+    height: 2px;
+    background: var(--light);
+    opacity: 0.1;
+}
+.task {
+    position: relative;
+    margin-bottom: 1.25em;
+}
+
+[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+}
+
+.custom-checkbox {
+    height: 0.75rem;
+    width: 0.75rem;
+    margin-right: 0.75rem;
+    display: inline-block;
+    border: 2px solid currentColor;
+    cursor: pointer;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: transform 200ms ease-in-out;
+}
+
+.task:hover .custom-checkbox, 
+[type="checkbox"]:focus + label .custom-checkbox {
+    color: var(--primary);
+    transform: scale(1.2);
+}
+
+[type="checkbox"]:checked + label .custom-checkbox {
+    background: var(--primary);
+    border: var(--primary);
+    box-shadow: inset 0 0 0px 2px whitesmoke;
+}
+
+[type="checkbox"]:checked + label {
+    opacity: 0.5;
+}
+
+.task label::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 1.5em;
+    top: 50%;
+    height: 3px;
+    background: currentColor;
+    transform: scale(0);
+    transform-origin: right;
+    transition: transform 300ms ease-in-out;
+}
+
+[type="checkbox"]:checked + label::after {
+    transform: scale(1);
+    transform-origin: left;
+}
+
+.delete-stuff {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.btn.delete {
+    opacity: 0.7;
+    font-size: 1rem;
+    transition: color 200ms;
+}
+.btn.delete:hover {
+    color: var(--tertiary);
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2 Do List</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="app.js"></script>
 </head>
 <body>
     <div>
@@ -14,15 +15,16 @@
     <!-- Task List -->
     <div class="all-tasks">
         <h2 class="task-list-title">My Tasks</h2>
-        <ul class="task-list">
-            <li class="list-name active-list">Morning</li>
-            <li class="list-name ">Afternoon</li>
+        <ul class="task-list" data-lists>
+            <!-- <li class="list-name active-list">Morning</li>
+            <li class="list-name">Afternoon</li>
             <li class="list-name">Evening</li>
-            <li class="list-name">Night</li>
+            <li class="list-name">Night</li> -->
         </ul>
 
-        <form action="">
-            <input type="text" class="new list" placeholder="new list name" aria-label="new list name">
+        <form action="" data-new-list-form>
+            <input type="text" class="new list" data-new-list-input 
+            placeholder="new list name" aria-label="new list name">
             <button class="btn create" aria-label="create new list">+</button>
         </form>
     </div>
